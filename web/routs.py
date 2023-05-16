@@ -99,7 +99,8 @@ async def job_matching():
             matching_score = calculate_matching_score(form.employee_criteria, job_requirements)
             # Filter jobs based on score, ignore in case of being less than 0
             if matching_score > 0:
-                job_list.append({'title': job['title'], 'company': job['company'], 'score': matching_score})
+                job_list.append({'title': job['title'], 'company': job['company'], 'score': matching_score,
+                                 'description': description})
 
         # Return sorted job listings as JSON response
         return {'job_listings': sorted(job_list, key=lambda i: i.get('score'))}, HTTPStatus.OK
