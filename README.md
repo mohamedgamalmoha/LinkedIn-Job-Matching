@@ -45,26 +45,24 @@ The Job Matching API is a Flask-based web application that allows users to match
    pip install -r requirements.txt
    ```
 
-6. Set up the environment variables:
+6. Set up the environment variables: \
+   Create a `.env` file in the root (**`web`**) directory of the project and add the following variables:
+    ```.dotenv
+    SECRET_KEY=your-secret-key
+    DEBUG=True
+    SQLALCHEMY_DATABASE_URI=sqlite:///site.db
+    SQLALCHEMY_TRACK_MODIFICATIONS=True
+    WTF_CSRF_ENABLED=False
+    JWT_SECRET_KEY=your-jwt-secret-key
+    ```
 
-   - Create a `.env` file in the root (**`web`**) directory of the project and add the following variables:
-
-     ```.dotenv
-     SECRET_KEY=your-secret-key
-     DEBUG=True
-     SQLALCHEMY_DATABASE_URI=sqlite:///site.db
-     SQLALCHEMY_TRACK_MODIFICATIONS=True
-     WTF_CSRF_ENABLED=False
-     JWT_SECRET_KEY=your-jwt-secret-key
-     ```
-
-7. Start the application:
+8. Start the application:
 
    ```shell
    python run.py
    ```
 
-8. The application will be accessible at `http://localhost:5000`.
+9. The application will be accessible at `http://localhost:5000`.
 
 
 ## Usage
@@ -114,7 +112,7 @@ python -m unittest test.py
 ## Notes
 
 - The entire project relies on web scraping, which means that the frontend of LinkedIn may undergo modifications in the future. If such changes occur, make sure to modify the `parser.py` file accordingly in order to adapt to the new structure.
-To prevent the sender's IP from being blocked due to multiple requests being sent to LinkedIn, it is advisable to rely on a proxy server provider, especially when working in a production environment. This approach ensures a safer and more secure operation.
+- To prevent the sender's IP from being blocked due to multiple requests being sent to LinkedIn, it is advisable to rely on a proxy server provider, especially when working in a production environment. This approach ensures a safer and more secure operation.
 
 
 ## Built With
@@ -128,4 +126,3 @@ Contributions are welcome! Please open an issue or submit a pull request if you 
 
 ## License
 This project is licensed under [MIT License](https://opensource.org/licenses/MIT).
-
